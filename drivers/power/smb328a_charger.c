@@ -1650,7 +1650,8 @@ static irqreturn_t smb328a_int_work_func(int irq, void *smb_chip)
 	defined(CONFIG_KOR_MODEL_SHV_E120L) || \
 	defined(CONFIG_KOR_MODEL_SHV_E120S) || \
 	defined(CONFIG_KOR_MODEL_SHV_E120K) || \
-	defined(CONFIG_KOR_MODEL_SHV_E110S)
+	defined(CONFIG_KOR_MODEL_SHV_E110S) || \
+	defined (CONFIG_JPN_MODEL_SC_05D)
 	if (intr_c & 0x80) {
 		pr_info("%s : charger watchdog intr triggerd!\n", __func__);
 		/* panic("charger watchdog intr triggerd!"); */
@@ -1680,7 +1681,8 @@ static int __devinit smb328a_probe(struct i2c_client *client,
 
 #if defined(CONFIG_KOR_MODEL_SHV_E160S) || \
 	defined(CONFIG_KOR_MODEL_SHV_E160K) || \
-	defined(CONFIG_KOR_MODEL_SHV_E160L)
+	defined(CONFIG_KOR_MODEL_SHV_E160L) || \
+	defined (CONFIG_JPN_MODEL_SC_05D)
 	if (get_hw_rev() < 0x4) {
 		pr_info("%s: SMB328A driver Loading SKIP!!!\n", __func__);
 		return 0;

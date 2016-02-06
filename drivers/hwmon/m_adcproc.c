@@ -52,7 +52,28 @@ static const struct adc_map_pt adcmap_msmtherm[] = {
 	{107,	120}
 };
 
-#if defined (CONFIG_JPN_MODEL_SC_03D)
+#if defined (CONFIG_JPN_MODEL_SC_05D)
+static const struct adc_map_pt adcmap_sec_settherm[] = {
+	{382,	 650},
+	{378,	 600},  // limit to overheat
+	{373,	 550},
+	{367,	 500},
+	{359,	 450},
+	{350,	 400},  // recover from overheat
+	{339,	 350},
+	{329,	 300},
+	{313,	 250},
+	{297,	 200},
+	{280,	 150},
+	{261,	 100},
+	{242,	  50},
+	{223,	   0},  // recover from cold
+	{205,	 -50},  // limit to cold
+	{188,	-100},
+	{173,	-150},
+	{161,	-200}
+};
+#elif defined (CONFIG_JPN_MODEL_SC_03D)
 static const struct adc_map_pt adcmap_sec_settherm[] = {
 	{328,  650},
 	{317,  600},
@@ -511,7 +532,6 @@ int32_t scale_xtern_chgr_cur(int32_t adc_code,
 
 	return 0;
 }
-
 int32_t scale_sec_settherm(int32_t adc_code,
 		const struct adc_properties *adc_properties,
 		const struct chan_properties *chan_properties,

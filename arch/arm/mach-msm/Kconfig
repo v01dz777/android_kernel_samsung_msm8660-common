@@ -1674,6 +1674,10 @@ config JPN_MODEL_SC_03D
 	depends on TARGET_SERIES_CELOX
 	bool "JPN NTT SC-03D"
 
+config JPN_MODEL_SC_05D
+	depends on TARGET_SERIES_Q1
+	bool "JPN NTT SC-05D"
+
 config SEC_AUDIO_DEVICE
 	bool "Sec AUDIO DEVICE"
 	help
@@ -2262,6 +2266,12 @@ config PMIC8058_XOADC_CAL
 	help
 	  Support PMIC8058 adc calibration
 endif
+
+config Q1_KOR_AUDIO
+	bool "Q1 KOR AUDIO"
+	default n
+	help
+	  Support Q1 KOR AUDIO
 
 config SEC_LOG_LAST_KMSG
 	default n
